@@ -17,6 +17,7 @@ $(function () {
         console.log(data);
         $("#email").val(data.email);
         console.log(data.formcheck);
+        $("#pwd").val(data.pwd);
 
         $("#formcheck").prop("checked", data.formcheck);
 
