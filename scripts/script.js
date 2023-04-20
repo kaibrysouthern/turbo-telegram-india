@@ -6,18 +6,23 @@ $(function () {
     pwd: "password"
   };
 
+//Load Profile
   $("#formLoad").click(function () {
     console.log("button clicked: ");
-
+    let url = "https://raw.githubusercontent.com/kaibrysouthern/turbo-telegram-india/main/assets/data.json";
     $.ajax({
-      url: "../assets/data.json",
+      url: url,
       dataType: "json",
-      success: function (data) {
+      success: function(data) {
         console.log(data);
         $("#email").val(data.email);
         console.log(data.formcheck);
 
         $("#formcheck").prop("checked", data.formcheck);
+
+      },
+      error: function() {
+        $("#email").val("myemail@email.com");
       }
     });
   });
@@ -43,13 +48,13 @@ $(function () {
     $("#letterWordsSelect").empty().append(optionList);
   });
 
-//Submit
+  //Submit
 $("#formSubmit").on("click", (e) => {
   e.preventDefault();
   console.log("clicked the button");
   $("#result").html("<b>The button is pressed and form is submitted.</b>");
   
-  // submit the form
+  // Submit the form
   $("form").submit();
 });
 
@@ -90,6 +95,7 @@ function getWords(letter) {
   }
 }
 
+//Refresh
 function refreshPage() {
   $("#row").html("");
   var getValue = document.getElementById("loadData");
