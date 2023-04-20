@@ -43,16 +43,16 @@ $(function () {
     $("#letterWordsSelect").empty().append(optionList);
   });
 
-  //Submit
-  $("#formSubmit").on("click", (e) => {
-    e.preventDefault();
-    console.log("clicked the button");
-    var formSubmit = document.getElementById("formSubmit");
-    var result = document.getElementById("result");
+//Submit
+$("#formSubmit").on("click", (e) => {
+  e.preventDefault();
+  console.log("clicked the button");
+  $("#result").html("<b>The button is pressed and form is submitted.</b>");
+  
+  // submit the form
+  $("form").submit();
+});
 
-    formSubmit(event);
-    result.innerHTML = "<b>The button is pressed and form is submitted.</b>";
-  });
 
   let dataStuff = `{ "letterSelected": "${$(
     "input[type=radio]:checked"
@@ -97,4 +97,5 @@ function refreshPage() {
     getValue.value = "";
   }
 }
+
 
